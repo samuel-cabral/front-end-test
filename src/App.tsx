@@ -1,11 +1,15 @@
-import { CheckboxWithLabel } from './components/CheckboxWithLabel';
+import { Provider } from 'react-redux';
+import { store } from './store';
+
+import { Catalog } from './components/Catalog';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <>
-      <h1>Hello World!</h1>
-      <CheckboxWithLabel labelOn="ON" labelOff="OFF" />
-    </>
+    <Provider store={store}>
+      <Catalog />
+    </Provider>
   );
 }
 
