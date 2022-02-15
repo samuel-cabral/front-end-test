@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { didNumbers } from './didNumbers/reducer';
+import { dids } from './dids/reducer';
 
 export default combineReducers({
-  didNumbers,
+  dids,
 });
