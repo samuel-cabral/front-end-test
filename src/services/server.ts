@@ -74,6 +74,7 @@ export const runServer = () =>
 
     routes() {
       this.namespace = 'api';
+      this.timing = 2000;
 
       this.post('/login', (schema, request) => {
         const { email, password }: IUser = JSON.parse(request.requestBody);
@@ -95,8 +96,8 @@ export const runServer = () =>
         return validUser;
       });
 
-      this.get('/dids', () => {
-        return this.schema.all('did');
+      this.get('/numbers', () => {
+        return this.schema.all('number:');
       });
 
       this.get('/labels', () => {
