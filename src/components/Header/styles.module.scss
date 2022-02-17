@@ -1,6 +1,6 @@
 .headerContainer {
   height: 5rem;
-  border-bottom: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--brown-900);
 }
 
 .headerContent {
@@ -11,6 +11,18 @@
 
   display: flex;
   align-items: center;
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    strong {
+      color: var(--white);
+    }
+  }
 
   nav {
     margin-left: 5rem;
@@ -31,16 +43,21 @@
 
       transition: color 0.2s;
 
-      &:hover {
-        color: var(--gray-800);
+      &:hover,
+      &:focus {
+        color: var(--white);
       }
 
-      &.active {
-        color: var(--gray-900);
+      &:focus {
+        color: var(--white);
+        font-weight: bold;
+      }
+      &:focus:hover {
+        color: var(--white);
         font-weight: bold;
       }
 
-      &.active::after {
+      &:focus::after {
         content: "";
         height: 3px;
         border-radius: 3px 3px 0 0;
