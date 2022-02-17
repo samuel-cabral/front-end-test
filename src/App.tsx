@@ -1,14 +1,14 @@
 import { Provider } from 'react-redux';
 import { store } from './store';
 
-import { Catalog } from './components/Catalog';
+import { Header } from './components/Header';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/global.scss';
 
 function App() {
   return (
     <Provider store={store}>
-      <Catalog />
+      <Header />
     </Provider>
   );
 }
