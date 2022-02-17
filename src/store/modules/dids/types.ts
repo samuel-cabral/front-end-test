@@ -1,4 +1,4 @@
-export interface IDidNumberItem {
+export interface IDidItem {
   id: number;
   value: string;
   monthyPrice: string;
@@ -6,6 +6,6 @@ export interface IDidNumberItem {
   currency: string;
 }
 
-export interface IDidNumbersState {
-  numbers: IDidNumberItem[];
+export interface IDidsState {
+  dids: IDidItem[];
 }
