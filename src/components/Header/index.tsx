@@ -1,4 +1,6 @@
 import { Navbar, Container as HeaderContent, Figure } from 'react-bootstrap';
+import { AddButton } from '../AddButton';
+
 import logoImg from '../../assets/images/logo.png';
 
 import styles from './styles.module.scss';
@@ -19,6 +21,8 @@ export function Header() {
             Numbers
           </Navbar.Brand>
         </Navbar>
+
+        <AddButton />
       </HeaderContent>
     </header>
   );
