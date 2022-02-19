@@ -1,14 +1,19 @@
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'react-bootstrap';
+
 import { store } from './store';
 
-import { Catalog } from './components/Catalog';
+import { Header } from './components/Header';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import globalTheme from './themes/global';
+import './styles/global.scss';
 
 function App() {
   return (
     <Provider store={store}>
-      <Catalog />
+      <ThemeProvider prefixes={globalTheme}>
+        <Header />
+      </ThemeProvider>
     </Provider>
   );
 }
