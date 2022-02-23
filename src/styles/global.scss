@@ -1,16 +1,47 @@
-@import './bootstrap/scss/bootstrap.scss';
+// @import 'bootstrap/scss/bootstrap';
+// Configuration
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
+$spacer: 1rem;
+$spacers: (
+  px: 1px,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 0.75,
+  4: $spacer * 1,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  7: $spacer * 1.75,
+  8: $spacer * 2,
+  9: $spacer * 2.25,
+  10: $spacer * 2.5,
+  12: $spacer * 3,
+  14: $spacer * 3.5,
+  16: $spacer * 4,
+  20: $spacer * 5,
+  24: $spacer * 6,
+  28: $spacer * 7,
+  32: $spacer * 8,
+  36: $spacer * 9,
+  40: $spacer * 10,
+  44: $spacer * 11,
+  48: $spacer * 12,
+  52: $spacer * 13,
+  56: $spacer * 14,
+  60: $spacer * 15,
+  64: $spacer * 16,
+  72: $spacer * 18,
+  80: $spacer * 20,
+  96: $spacer * 24,
+);
 
 :root {
   --white: #ffffff;
 
-  --gray-100: #e1e1e6;
-  --gray-300: #a8a8b3;
+  --gray-100: #f8f9fa;
+  --gray-300: #dee2e6;
+  --gray-500: #adb5bd;
   --gray-800: #29292e;
   --gray-850: #32323a;
   --gray-900: #121214;
@@ -20,6 +51,69 @@
   --cyan-500: #61dafb;
 
   --yellow-500: #e4ad2d;
+}
+
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'width':
+      map-merge(
+        map-get($utilities, 'width'),
+        (
+          values:
+            map-merge(map-get(map-get($utilities, 'width'), 'values'), $spacers),
+        )
+      ),
+  )
+);
+
+// Layout & components
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/accordion';
+@import 'bootstrap/scss/breadcrumb';
+@import 'bootstrap/scss/pagination';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/progress';
+@import 'bootstrap/scss/list-group';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/toasts';
+@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/carousel';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas';
+@import 'bootstrap/scss/placeholders';
+
+// Helpers
+@import 'bootstrap/scss/helpers';
+
+// Utilities
+@import 'bootstrap/scss/utilities/api';
+// scss-docs-end import-stack
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 @media (max-width: 1080px) {
@@ -36,7 +130,7 @@
 
 body {
   background-color: var(--gray-900);
-  color: var(--gray-100);
+  color: var(--gray-300);
 }
 
 body,
