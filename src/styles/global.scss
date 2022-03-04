@@ -6,6 +6,7 @@
 $spacer: 1rem;
 $spacers: (
   px: 1px,
+  0: 0,
   1: $spacer * 0.25,
   2: $spacer * 0.5,
   3: $spacer * 0.75,
@@ -36,22 +37,40 @@ $spacers: (
   96: $spacer * 24,
 );
 
-:root {
-  --white: #ffffff;
+$gray-100: map-get($grays, '100');
+$gray-100: map-get($grays, '100');
+$gray-200: map-get($grays, '200');
+$gray-400: map-get($grays, '400');
+$gray-500: map-get($grays, '500');
+$gray-600: map-get($grays, '600');
+$gray-700: map-get($grays, '700');
+$gray-800: map-get($grays, '800');
+$gray-900: map-get($grays, '900');
 
-  --gray-100: #f8f9fa;
-  --gray-300: #dee2e6;
-  --gray-500: #adb5bd;
-  --gray-800: #29292e;
-  --gray-850: #32323a;
-  --gray-900: #121214;
+$grays: (
+  'gray-100': $gray-100,
+  'gray-200': $gray-200,
+  'gray-300': $gray-300,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
+  'gray-600': $gray-600,
+  'gray-700': $gray-700,
+  'gray-800': $gray-800,
+  'gray-900': $gray-900,
+);
 
-  --brown-900: #201a16;
+$theme-colors: map-merge($theme-colors, $grays);
+$utilities-text-colors: map-merge($utilities-text-colors, $grays);
+$utilities-bg-colors: map-merge($utilities-bg-colors, $grays);
 
-  --cyan-500: #61dafb;
-
-  --yellow-500: #e4ad2d;
-}
+$font-sizes: map-merge(
+  $font-sizes,
+  (
+    sm: $small-font-size,
+    base: $font-size-base,
+    lg: $font-size-lg,
+  )
+);
 
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
@@ -65,6 +84,40 @@ $utilities: map-merge(
         (
           values:
             map-merge(map-get(map-get($utilities, 'width'), 'values'), $spacers),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'max-width':
+      map-merge(
+        map-get($utilities, 'max-width'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'max-width'), 'values'),
+              $spacers
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'height':
+      map-merge(
+        map-get($utilities, 'height'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'height'), 'values'),
+              $spacers
+            ),
         )
       ),
   )
@@ -129,8 +182,8 @@ $utilities: map-merge(
 }
 
 body {
-  background-color: var(--gray-900);
-  color: var(--gray-300);
+  background: $gray-900;
+  color: $gray-100;
 }
 
 body,
@@ -139,7 +192,7 @@ select,
 textarea,
 select,
 button {
-  font: 400 1rem 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 400 1rem 'Roboto', Helvetica, Arial, sans-serif;
 }
 
 button {

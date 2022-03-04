@@ -10,17 +10,9 @@
   padding: 0 1.5rem;
 }
 
-.searchInputLabel {
-  display: flex;
-  flex: 1;
-  align-self: center;
-  position: relative;
-}
-
 .customInput,
 .customInput:focus {
   outline-style: inherit;
-  color: var(--gray-300);
 }
 
 .avatar {
