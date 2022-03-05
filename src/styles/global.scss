@@ -59,9 +59,19 @@ $grays: (
   'gray-900': $gray-900,
 );
 
+$primary: map-get($yellows, 'yellow-500');
 $theme-colors: map-merge($theme-colors, $grays);
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    'primary': $primary,
+  )
+);
+
 $utilities-text-colors: map-merge($utilities-text-colors, $grays);
 $utilities-bg-colors: map-merge($utilities-bg-colors, $grays);
+
+$utilities-bg-colors: map-merge($utilities-bg-colors, $yellows);
 
 $font-sizes: map-merge(
   $font-sizes,
@@ -193,6 +203,11 @@ textarea,
 select,
 button {
   font: 400 1rem 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.form-control:focus {
+  border-color: rgba(204, 154, 6, 1);
+  box-shadow: 0 0 0 0.25rem rgb(204 154 6 / 25%);
 }
 
 button {

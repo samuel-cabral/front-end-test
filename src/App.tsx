@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'react-bootstrap';
 
-import { Dashboard } from '~/pages/Dashboard';
+import { SignIn } from '~/pages/SignIn';
 import { store } from './store';
 
 import '~/styles/global.scss';
@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <Dashboard />
+        <SignIn />
       </ThemeProvider>
     </Provider>
   );
