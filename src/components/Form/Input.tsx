@@ -1,31 +1,36 @@
 import {
-  FormGroup,
-  FormLabel,
   FormControl,
   FormControlProps,
+  FormLabel,
+  FormGroup,
 } from 'react-bootstrap';
-import classNames from 'classnames';
 
-interface InputProps extends FormControlProps {
+import {
+  FormControlOptions,
+  InputProps as ChakraInputProps,
+} from '@chakra-ui/react';
+import classes from 'classnames';
+
+interface InputProps
+  extends FormControlProps,
+    Pick<ChakraInputProps, 'focusBorderColor'> {
   name: string;
   label?: string;
 }
 
-const formControlStyles = classNames(
-  'bg-gray-900',
-  'text-gray-100',
-  'border-0',
-);
-
 export function Input({ name, label, ...rest }: InputProps) {
   return (
     <FormGroup>
-      {!!label && <FormLabel htmlFor={name}>{label}</FormLabel>}
+      {!!label && (
+        <FormLabel className="text-gray-500" htmlFor={name}>
+          {label}
+        </FormLabel>
+      )}
 
       <FormControl
         id={name}
         name={name}
-        className={formControlStyles}
+        className={classes('bg-gray-900', 'text-gray-100', 'border-0')}
         size="lg"
         {...rest}
       />

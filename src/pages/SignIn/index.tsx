@@ -1,7 +1,8 @@
-import { Flex } from '@chakra-ui/react';
 import { Form, Button, Stack } from 'react-bootstrap';
 
+import { Flex } from '@chakra-ui/react';
 import classNames from 'classnames';
+
 import { Input } from '~/components/Form/Input';
 
 const formContainer = classNames(
@@ -27,7 +28,12 @@ export function SignIn() {
     <Flex w="100vw" h="100vh" align="center" justify="center">
       <Form className={formContainer} style={{ maxWidth: 400 }}>
         <Stack gap={4}>
-          <Input name="email" type="email" label="E-mail" />
+          <Input
+            name="email"
+            type="email"
+            label="E-mail"
+            focusBorderColor="pink.500"
+          />
           <Input name="password" type="password" label="Password" />
         </Stack>
 

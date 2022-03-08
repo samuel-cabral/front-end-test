@@ -59,7 +59,7 @@ $grays: (
   'gray-900': $gray-900,
 );
 
-$primary: map-get($yellows, 'yellow-500');
+$primary: map-get($pinks, 'pink-500');
 $theme-colors: map-merge($theme-colors, $grays);
 $theme-colors: map-merge(
   $theme-colors,
@@ -69,8 +69,8 @@ $theme-colors: map-merge(
 );
 
 $utilities-text-colors: map-merge($utilities-text-colors, $grays);
-$utilities-bg-colors: map-merge($utilities-bg-colors, $grays);
 
+$utilities-bg-colors: map-merge($utilities-bg-colors, $grays);
 $utilities-bg-colors: map-merge($utilities-bg-colors, $yellows);
 
 $font-sizes: map-merge(
@@ -127,6 +127,70 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, 'height'), 'values'),
               $spacers
+            ),
+        )
+      ),
+  )
+);
+
+$all-colors: map-merge-multiple(
+  $blues,
+  $indigos,
+  $purples,
+  $pinks,
+  $reds,
+  $oranges,
+  $yellows,
+  $greens,
+  $teals,
+  $cyans
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'color':
+      map-merge(
+        map-get($utilities, 'color'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'color'), 'values'),
+              ($all-colors)
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'background-color':
+      map-merge(
+        map-get($utilities, 'background-color'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'background-color'), 'values'),
+              ($all-colors)
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'shadow':
+      map-merge(
+        map-get($utilities, 'shadow'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'shadow'), 'values'),
+              ($all-colors)
             ),
         )
       ),
