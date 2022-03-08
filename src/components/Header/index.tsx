@@ -80,22 +80,21 @@ export function Header() {
           )}
         >
           <Stack
-            direction="horizontal"
             gap={8}
+            direction="horizontal"
             className={classNames(
-              'align-items-center',
-              'justify-content-center',
-              'm-8',
+              'me-8',
+              'my-4',
               'pe-8',
-              'text-gray-300',
               'border-end',
-              'border-gray-700',
-              'border-2',
+              'border-gray-500',
+              'text-gray-500',
             )}
           >
             <Icon as={RiNotificationLine} fontSize="20" />
             <Icon as={RiAddCircleLine} fontSize="20" />
           </Stack>
+
           <Flex align="center">
             <Box className={classNames('me-4', 'text-end')}>
               <p className={classNames('fs-lg', 'mb-2')}>Samuel Cabral</p>
@@ -105,8 +104,8 @@ export function Header() {
             </Box>
 
             <Avatar
-              color="#E4AD2D"
               round
+              color="#E4AD2D"
               size="60"
               name="Samuel Cabral"
               src="https://github.com/samuel-cabral.png"

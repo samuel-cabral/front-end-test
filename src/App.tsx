@@ -1,17 +1,19 @@
 import { Provider } from 'react-redux';
-import { ThemeProvider } from 'react-bootstrap';
+// import { ThemeProvider } from 'react-bootstrap';
+import { ChakraProvider } from '@chakra-ui/react';
 
-import { SignIn } from '~/pages/SignIn';
+import { NumbersList } from '~/pages/NumbersList';
+import { theme } from '~/styles/theme';
 import { store } from './store';
 
-import '~/styles/global.scss';
+import '~/styles/theme.scss';
 
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider>
-        <SignIn />
-      </ThemeProvider>
+      <ChakraProvider theme={theme}>
+        <NumbersList />
+      </ChakraProvider>
     </Provider>
   );
 }

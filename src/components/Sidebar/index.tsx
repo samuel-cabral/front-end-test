@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { Stack } from '~/components/Stack';
 
-const sideBarContainer = classNames('w-64', 'me-8');
+const sideBarContainer = classNames('w-60');
 const areaTitle = classNames(
   'd-inline-block',
   'my-4',
@@ -19,7 +19,7 @@ const linkTextStyles = classNames('ms-4', 'fs-base');
 export function Sidebar() {
   return (
     <Box as="aside" className={sideBarContainer}>
-      <Stack gap={12} align="start">
+      <Stack gap={12}>
         <Box>
           <strong className={areaTitle}>GENERAL</strong>
 
